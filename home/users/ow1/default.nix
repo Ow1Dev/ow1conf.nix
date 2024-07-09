@@ -7,6 +7,7 @@
   module = {
     nvim.enable = true;
     git.enable = true;
+    zsh.enable = true;
     nix-config = {
       enable = true;
       useNixPackageManagerConfig = false;
@@ -17,6 +18,7 @@
     # Software
     packages = with pkgs; [
       bat
+      nnn
     ];
   };
 }

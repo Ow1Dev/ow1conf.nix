@@ -5,6 +5,7 @@
 {
   imports = [
     ./neovim
+    ./zsh
     ./git
   ];
 }
