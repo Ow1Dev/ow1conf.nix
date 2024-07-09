@@ -43,5 +43,16 @@
           "${hosts.nestop.username}@${hosts.nestop.hostname}" = libx.mkHome hosts.nestop;
         };
       };
+      perSystem = {pkgs, ...}: let
+        inherit (pkgs) alejandra just mkShell;
+      in {
+        devShells = {
+          default = mkShell {
+            nativeBuildInputs = [just];
+          };
+        };
+
+        formatter = alejandra;
+      };
     };
 }
