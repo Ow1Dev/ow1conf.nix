@@ -22,6 +22,7 @@
 
       # Developer tools
       doppler
+      httpie
     ];
   };
 }
