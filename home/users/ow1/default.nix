@@ -19,6 +19,9 @@
     packages = with pkgs; [
       bat
       nnn
+
+      # Developer tools
+      doppler
     ];
   };
 }
