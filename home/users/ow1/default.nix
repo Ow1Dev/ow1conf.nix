@@ -17,8 +17,12 @@
   home = {
     # Software
     packages = with pkgs; [
+      # Utils
       bat
       nnn
+
+      # DevOps Utils
+      docker-compose
 
       # Developer tools
       doppler
