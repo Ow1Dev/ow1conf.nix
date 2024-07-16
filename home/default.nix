@@ -1,15 +1,18 @@
-
-{ pkgs
-, lib
-
-, username
-, stateVersion
-, ...
-}:
-
-let
-  isRoot = if (username == "root") then true else false;
-  homeDirectory = if isRoot then "/root" else "/home/${username}";
+{
+  pkgs,
+  lib,
+  username,
+  stateVersion,
+  ...
+}: let
+  isRoot =
+    if (username == "root")
+    then true
+    else false;
+  homeDirectory =
+    if isRoot
+    then "/root"
+    else "/home/${username}";
 in {
   programs.home-manager.enable = true;
 

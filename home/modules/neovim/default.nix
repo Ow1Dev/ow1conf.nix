@@ -1,11 +1,13 @@
-{ lib, config, inputs, pkgs, ... }:
-
-with lib;
-
-let
-  cfg = config.module.nvim;
-in 
 {
+  lib,
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.module.nvim;
+in {
   options = {
     module.nvim.enable = mkEnableOption "Enables nvim";
   };

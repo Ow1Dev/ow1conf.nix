@@ -20,11 +20,13 @@ in {
       dotDir = ".config/zsh";
       history.path = "${config.home.homeDirectory}/.config/zsh/.zsh_history";
 
-      shellAliases = {
-        n = "nnn -e";
-      } // mkIf config.module.zoxide.enable {
-        cd = "z";
-      };
+      shellAliases =
+        {
+          n = "nnn -e";
+        }
+        // mkIf config.module.zoxide.enable {
+          cd = "z";
+        };
     };
 
     programs.starship = {

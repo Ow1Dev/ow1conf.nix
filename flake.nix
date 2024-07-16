@@ -20,8 +20,7 @@
     ow1dev-nvim.url = "github:Ow1Dev/ow1dev.nvim";
   };
 
-  outputs = {flake-parts, ...} @ inputs: 
-  let
+  outputs = {flake-parts, ...} @ inputs: let
     linuxArch = "x86_64-linux";
     stateVersion = "24.11";
     libx = import ./lib {inherit inputs stateVersion;};
@@ -33,13 +32,14 @@
         platform = linuxArch;
       };
     };
-  in flake-parts.lib.mkFlake {inherit inputs;} {
+  in
+    flake-parts.lib.mkFlake {inherit inputs;} {
       systems = [
         linuxArch
       ];
 
       flake = {
-         homeConfigurations = {
+        homeConfigurations = {
           "${hosts.nestop.username}@${hosts.nestop.hostname}" = libx.mkHome hosts.nestop;
         };
       };

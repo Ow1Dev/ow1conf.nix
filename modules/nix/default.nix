@@ -1,13 +1,11 @@
-{ inputs
-, lib
-, config
-, pkgs
-, ...
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.module.nix-config;
   inherit (pkgs.stdenv) isLinux;
 in {
@@ -31,21 +29,21 @@ in {
 
     # Nix package manager settings
     nix = optionalAttrs cfg.useNixPackageManagerConfig ({
-      registry.s.flake = inputs.self;
+        registry.s.flake = inputs.self;
 
-      settings = {
-        experimental-features = [ "nix-command" "flakes" ];
-        auto-optimise-store = true;
-      };
+        settings = {
+          experimental-features = ["nix-command" "flakes"];
+          auto-optimise-store = true;
+        };
 
-      gc = {
-        automatic = true;
-        options = "--delete-older-than 14d";
-      };
-    } // optionalAttrs isLinux {
-      gc.dates = "daily";
-      optimise.automatic = true;
-    });
+        gc = {
+          automatic = true;
+          options = "--delete-older-than 14d";
+        };
+      }
+      // optionalAttrs isLinux {
+        gc.dates = "daily";
+        optimise.automatic = true;
+      });
   };
 }
-
