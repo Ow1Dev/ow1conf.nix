@@ -7,5 +7,6 @@
     ./neovim
     ./zsh
     ./git
+    ./zoxide
   ];
 }

@@ -8,6 +8,7 @@
     nvim.enable = true;
     git.enable = true;
     zsh.enable = true;
+    zoxide.enable = true;
     nix-config = {
       enable = true;
       useNixPackageManagerConfig = false;

@@ -22,6 +22,8 @@ in {
 
       shellAliases = {
         n = "nnn -e";
+      } // mkIf config.module.zoxide.enable {
+        cd = "z";
       };
     };
 
