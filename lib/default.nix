@@ -18,4 +18,20 @@
         ../home
       ];
     };
+
+  # Helper function for generating host configs
+  mkHost = {
+    hostname ? "nixos",
+    username ? "ow1",
+    platform ? "x86_64-linux",
+  }:
+    inputs.nixpkgs.lib.nixosSystem {
+      specialArgs = {
+        inherit inputs hostname username platform stateVersion;
+      };
+
+      modules = [
+        ../system
+      ];
+    };
 }
