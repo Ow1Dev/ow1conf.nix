@@ -1,7 +1,6 @@
 { pkgs
 , lib
 , config
-, isWorkstation
 , ...
 }:
 
@@ -57,27 +56,6 @@ in {
       mtr
       ipcalc
       cacert
-    ] ++ optionals isWorkstation [
-      # Themes
-      orchis-theme
-      vimix-cursors
-      tela-circle-icon-theme
-      nordic
-
-      # Hardware
-      microcodeIntel
-      libGL
-      qmk
-
-      # Hardware utils
-      libva-utils
-      intel-gpu-tools
-      fwupd
-      fwupd-efi
-
-      # Utils
-      gnome.dconf-editor
-      grim
     ];
   };
 }
