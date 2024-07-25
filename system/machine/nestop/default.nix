@@ -40,7 +40,6 @@
       mtr.enable        = true;
       xdg-portal.enable = true;
       zsh.enable        = true;
-      fish.enable       = true;
     };
   };
 }

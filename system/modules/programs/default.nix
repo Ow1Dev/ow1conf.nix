@@ -11,7 +11,6 @@ _:
     ./zsh
     ./mtr
     ./dconf
-    ./fish
   ];
 }
 
