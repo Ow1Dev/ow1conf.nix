@@ -16,7 +16,6 @@
     ./users
     ./variables
     ./virtualization
-    ./pihole
   ];
 }
 
