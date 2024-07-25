@@ -17,6 +17,11 @@
 
     stylix.url = "github:danth/stylix";
 
+    # Hyprland ecosystem
+    hyprland = {
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.41.1";
+    };
+
     # Just for pretty flake.nix
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
