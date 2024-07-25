@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   config,
   ...
@@ -22,11 +21,15 @@ in {
 
       shellAliases =
         {
-          n = "nnn -e";
+          ll = "nnn -adeHo";
         }
-        // mkIf config.module.zoxide.enable {
-          cd = "z";
-        };
+        // (
+          if config.module.zoxide.enable
+          then {
+            cd = "z";
+          }
+          else {}
+        );
     };
 
     programs.starship = {
