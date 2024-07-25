@@ -11,7 +11,7 @@
     disk = {
       vdb = {
         type = "disk";
-        device = "/dev/disk/by-id/nvme-WD_PC_SN560_SDDPNQE-1T00-1102_23326L401726";
+        device = "/dev/disk/by-id/ata-KINGSTON_RBUSNS8280S3128GH2_50026B736B01C72A";
 
         content = {
           type = "gpt";
