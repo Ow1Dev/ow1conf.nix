@@ -10,6 +10,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    stylix.url = "github:danth/stylix";
+
     # Just for pretty flake.nix
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -39,6 +46,10 @@
       ];
 
       flake = {
+        nixosConfigurations = {
+          ${hosts.nestop.hostname} = libx.mkHost hosts.nestop;
+        };
+
         homeConfigurations = {
           "${hosts.nestop.username}@${hosts.nestop.hostname}" = libx.mkHome hosts.nestop;
         };

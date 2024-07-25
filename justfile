@@ -7,5 +7,8 @@ check:
 home-switch profile:
   home-manager switch --flake .#{{ profile }}
 
+nixos-switch profile:
+    nixos-rebuild switch --flake ".#{{ profile }}"
+
 update:
     nix flake update
