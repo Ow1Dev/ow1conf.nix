@@ -1,23 +1,17 @@
-{ pkgs
-, ...
-}:
-
-{
+{pkgs, ...}: {
   # Kernel settings
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
 
-    extraModulePackages = [ ];
+    extraModulePackages = [];
 
     kernelModules = [
       "kvm-intel"
     ];
 
-    initrd.kernelModules = [
-      "i915"
-    ];
+    initrd.kernelModules = [];
 
-    kernelParams = [ 
+    kernelParams = [
       # Video driver settings
       "i915.enable_guc=1"
       "pci=assign-busses,hpbussize=0x33,realloc"
@@ -29,14 +23,7 @@
       "slab_nomerge"
     ];
 
-    initrd.availableKernelModules = [ 
-      "xhci_pci"
-      "thunderbolt"
-      "vmd"
-      "nvme"
-      "usb_storage"
-      "sd_mod"
-    ];
+    initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc"];
 
     blacklistedKernelModules = [
       # Obscure network protocols
@@ -104,4 +91,3 @@
     };
   };
 }
-

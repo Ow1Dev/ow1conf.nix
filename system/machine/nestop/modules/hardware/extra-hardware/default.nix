@@ -15,11 +15,6 @@
       sof-firmware
       linux-firmware
     ];
-
-    logitech.wireless = {
-      enable = true;
-      enableGraphical = true;
-    };
   };
 }
 
