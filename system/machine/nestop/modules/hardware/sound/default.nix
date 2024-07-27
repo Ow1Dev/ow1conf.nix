@@ -1,17 +1,12 @@
-_:
-
-{
-  # Sound settings
+_: {
+  # Sound settingsa
   sound.enable = true;
+  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  hardware.pulseaudio.enable = true;
-  hardware.pulseaudio.support32Bit = true;
-  
-  /*services.pipewire = {
+  services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-  };*/
+  };
 }
-
