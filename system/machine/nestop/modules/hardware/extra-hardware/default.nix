@@ -5,6 +5,7 @@
 }:
 
 {
+  
   # Extra drivers settings
   hardware = {
     enableAllFirmware = true;

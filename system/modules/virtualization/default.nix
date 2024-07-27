@@ -1,12 +1,10 @@
-{ lib
-, config
-, pkgs
-, ...
+{
+  lib,
+  config,
+  pkgs,
+  ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.module.virtualisation;
 in {
   options = {
@@ -19,7 +17,7 @@ in {
       virt-manager
     ];
 
-    users.extraGroups.vboxusers.members = [ "ow1" ];
+    users.extraGroups.vboxusers.members = ["ow1"];
 
     virtualisation = {
       docker.enable = true;
@@ -29,4 +27,3 @@ in {
     };
   };
 }
-
