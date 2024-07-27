@@ -25,7 +25,7 @@ in {
           home = "/home/${username}";
           shell = pkgs.zsh;
 
-          initialHashedPassword = "passwrd";
+          initialPassword = "passwrd";
 
           extraGroups = [
             "audio"
