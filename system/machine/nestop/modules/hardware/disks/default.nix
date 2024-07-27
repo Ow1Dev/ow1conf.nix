@@ -1,38 +1,31 @@
-{ inputs
-, ...
-}:
-
-{
+{inputs, ...}: {
   imports = [
     inputs.disko.nixosModules.disko
   ];
 
   disko.devices = {
     disk = {
-      vdb = {
+      main = {
         type = "disk";
-        device = "/dev/disk/by-id/ata-KINGSTON_RBUSNS8280S3128GH2_50026B736B01C72A";
+        device = "/dev/disk/by-id/nvme-KINGSTON_SNV2S1000G_50026B7785AA4846";
 
         content = {
           type = "gpt";
-
           partitions = {
+            boot = {
+              size = "1M";
+              type = "EF02"; # for grub MBR
+            };
             ESP = {
               size = "512M";
               type = "EF00";
-
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-
-                mountOptions = [
-                  "defaults"
-                ];
               };
             };
-
-            luks = {
+            root = {
               size = "100%";
 
               content = {
@@ -41,22 +34,22 @@
 
                 content = {
                   type = "btrfs";
-                  extraArgs = [ "-f" ];
+                  extraArgs = ["-f"];
 
                   subvolumes = {
                     "/root" = {
                       mountpoint = "/";
-                      mountOptions = [ "compress=zstd" "noatime" ];
+                      mountOptions = ["compress=zstd" "noatime"];
                     };
 
                     "/home" = {
                       mountpoint = "/home";
-                      mountOptions = [ "compress=zstd" "noatime" ];
+                      mountOptions = ["compress=zstd" "noatime"];
                     };
 
                     "/nix" = {
                       mountpoint = "/nix";
-                      mountOptions = [ "compress=zstd" "noatime" ];
+                      mountOptions = ["compress=zstd" "noatime"];
                     };
                   };
                 };
@@ -68,4 +61,3 @@
     };
   };
 }
-
