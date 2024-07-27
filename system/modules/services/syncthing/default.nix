@@ -15,9 +15,9 @@ in {
   config = mkIf cfg.enable {
     services.syncthing = {
       enable = true;
-      user = "maxmur";
-      dataDir = "/home/maxmur/.obsidian/obsidian";
-      configDir = "/home/maxmur/.config/syncthing";
+      user = "ow1";
+      dataDir = "/home/ow1/.obsidian/obsidian";
+      configDir = "/home/ow1/.config/syncthing";
     };
   };
 }

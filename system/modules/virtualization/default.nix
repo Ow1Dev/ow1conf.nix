@@ -19,7 +19,7 @@ in {
       virt-manager
     ];
 
-    users.extraGroups.vboxusers.members = [ "maxmur" ];
+    users.extraGroups.vboxusers.members = [ "ow1" ];
 
     virtualisation = {
       docker.enable = true;

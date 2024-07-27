@@ -24,7 +24,7 @@
       fwupd.enable        = true;
       polkit.enable       = true;
       printing.enable     = true;
-      syncthing.enable    = true;
+      syncthing.enable    = false;
       udev.enable         = true;
       zram.enable         = true;
       greetd-tui.enable   = true;
