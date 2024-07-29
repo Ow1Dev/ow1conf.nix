@@ -8,6 +8,9 @@
     nvim.enable = true;
     git.enable = true;
     zsh.enable = true;
+    hyprland.enable = true;
+    foot.enable = true;
+    chrome.enable = true;
     zoxide.enable = true;
     nix-config = {
       enable = true;
