@@ -28,15 +28,6 @@ in {
         mouse = {
           hide-when-typing = "no";
         };
-
-        key-bindings = {
-          clipboard-copy = "Control+c XF86Copy";
-          clipboard-paste = "Control+v XF86Paste";
-        };
-
-        text-bindings = {
-          "\\x03" = "Control+Shift+c Control+Shift+C";
-        };
       };
     };
   };
