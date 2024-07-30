@@ -11,6 +11,7 @@ let
 
   audioControl      = "${pkgs.pulseaudio}/bin/pactl";
   brightnessControl = "${pkgs.brightnessctl}/bin/brightnessctl";
+  appLauncher       = "rofi -show";
 in {
   options = {
     module.hyprland.binds.enable = mkEnableOption "Enables binds in Hyprland";
@@ -84,7 +85,7 @@ in {
         "SUPER, Return, exec, ${pkgs.foot}/bin/foot"
 
         # Launchers
-        # "CTRL, Space, exec, ${appLauncher}"
+        "CTRL, Space, exec, ${appLauncher}"
 
         # Cliphist
         # "SUPER, C, exec, ${cliphist}"

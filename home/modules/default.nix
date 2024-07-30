@@ -5,6 +5,8 @@
 
     ./neovim
     ./hyprland
+    ./waybar
+    ./rofi
     ./foot
     ./chrome
     ./zsh

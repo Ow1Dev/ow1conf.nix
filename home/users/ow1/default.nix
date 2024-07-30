@@ -4,11 +4,18 @@
     ../../modules
   ];
 
+  nixpkgs.overlays = [
+    (import ../../overlays/rofi-calc.nix)
+    (import ../../overlays/rofi-emoji.nix)
+  ];
+
   module = {
     nvim.enable = true;
     git.enable = true;
     zsh.enable = true;
     hyprland.enable = true;
+    waybar.enable = true;
+    rofi.enable = true;
     foot.enable = true;
     chrome.enable = true;
     zoxide.enable = true;
