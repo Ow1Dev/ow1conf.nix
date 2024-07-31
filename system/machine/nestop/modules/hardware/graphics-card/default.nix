@@ -1,8 +1,4 @@
-{ pkgs
-, ...
-}:
-
-{
+{pkgs, ...}: {
   # Graphics card settings
   nixpkgs.overlays = [
     (import ../../../../../overlays/vaapiIntel)
@@ -21,4 +17,3 @@
     ];
   };
 }
-

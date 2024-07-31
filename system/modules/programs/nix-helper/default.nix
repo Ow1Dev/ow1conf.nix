@@ -1,12 +1,10 @@
-{ lib
-, config
-, username
-, ...
+{
+  lib,
+  config,
+  username,
+  ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.module.programs.nh;
 in {
   options = {
@@ -25,4 +23,3 @@ in {
     };
   };
 }
-

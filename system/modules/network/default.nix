@@ -1,12 +1,10 @@
-{ lib
-, config
-, hostname
-, ...
+{
+  lib,
+  config,
+  hostname,
+  ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.module.network;
 in {
   options = {
@@ -24,4 +22,3 @@ in {
     };
   };
 }
-

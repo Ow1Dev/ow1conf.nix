@@ -1,11 +1,9 @@
-{ lib
-, config
-, ...
+{
+  lib,
+  config,
+  ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.module.timedate;
 in {
   options = {
@@ -18,4 +16,3 @@ in {
     services.chrony.enable = true;
   };
 }
-

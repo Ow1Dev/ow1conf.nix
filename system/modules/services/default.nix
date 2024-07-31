@@ -1,10 +1,5 @@
-{ lib
-, ...
-}:
-
-with lib;
-
-{
+{lib, ...}:
+with lib; {
   imports = [
     ./cpu-autofreq
     ./greetd-tui
@@ -35,4 +30,3 @@ with lib;
   };
   */
 }
-

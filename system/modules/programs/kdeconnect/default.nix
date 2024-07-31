@@ -1,11 +1,9 @@
-{ lib
-, config
-, ...
+{
+  lib,
+  config,
+  ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.module.programs.kdeconnect;
 in {
   options = {
@@ -16,4 +14,3 @@ in {
     programs.kdeconnect.enable = true;
   };
 }
-

@@ -1,14 +1,12 @@
-{ pkgs
-, lib
-, config
-, username
-, inputs
-, ...
+{
+  pkgs,
+  lib,
+  config,
+  username,
+  inputs,
+  ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.module.services.greetd-tui;
 in {
   options = {
@@ -39,4 +37,3 @@ in {
     };
   };
 }
-

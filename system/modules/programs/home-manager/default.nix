@@ -1,15 +1,13 @@
-{ inputs
-, lib
-, config
-, ...
+{
+  inputs,
+  lib,
+  config,
+  ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.module.programs.hm;
 in {
-  imports = [ 
+  imports = [
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -20,11 +18,10 @@ in {
   config = mkIf cfg.enable {
     home-manager = {
       useGlobalPkgs = true;
-      useUserPackages = true; 
+      useUserPackages = true;
       extraSpecialArgs = {
         inherit inputs;
       };
     };
   };
 }
-

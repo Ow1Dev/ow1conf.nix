@@ -1,6 +1,4 @@
-_:
-
-{
+_: {
   imports = [
     ./extra-hardware
     ./graphics-card
@@ -11,4 +9,3 @@ _:
     ./boot
   ];
 }
-

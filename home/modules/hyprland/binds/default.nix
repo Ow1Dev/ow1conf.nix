@@ -1,17 +1,15 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.module.hyprland.binds;
 
-  audioControl      = "${pkgs.pulseaudio}/bin/pactl";
+  audioControl = "${pkgs.pulseaudio}/bin/pactl";
   brightnessControl = "${pkgs.brightnessctl}/bin/brightnessctl";
-  appLauncher       = "rofi -show";
+  appLauncher = "rofi -show";
 in {
   options = {
     module.hyprland.binds.enable = mkEnableOption "Enables binds in Hyprland";
@@ -132,4 +130,3 @@ in {
     };
   };
 }
-

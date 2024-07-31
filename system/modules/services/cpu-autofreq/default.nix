@@ -1,11 +1,9 @@
-{ lib
-, config
-, ...
+{
+  lib,
+  config,
+  ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.module.services.cpu-autofreq;
 in {
   options = {
@@ -35,4 +33,3 @@ in {
     };
   };
 }
-

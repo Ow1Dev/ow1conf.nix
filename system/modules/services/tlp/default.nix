@@ -1,11 +1,9 @@
-{ lib
-, config
-, ...
+{
+  lib,
+  config,
+  ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.module.services.tlp;
 in {
   options = {
@@ -15,7 +13,7 @@ in {
   config = mkIf cfg.enable {
     services.tlp = {
       enable = true;
-      
+
       settings = {
         /*
         CPU_SCALING_GOVERNOR_ON_AC = "performance";
@@ -45,4 +43,3 @@ in {
     };
   };
 }
-

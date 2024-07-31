@@ -1,8 +1,4 @@
-{ inputs
-, ...
-}:
-
-{
+{inputs, ...}: {
   imports = [
     inputs.stylix.nixosModules.stylix
     ../../modules/stylix
@@ -18,4 +14,3 @@
     ./virtualization
   ];
 }
-

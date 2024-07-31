@@ -1,11 +1,9 @@
-{ lib
-, config
-, ...
+{
+  lib,
+  config,
+  ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.module.programs.gnupg;
 in {
   options = {
@@ -20,4 +18,3 @@ in {
     };
   };
 }
-

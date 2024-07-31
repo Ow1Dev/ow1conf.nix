@@ -1,11 +1,9 @@
-{ lib
-, pkgs
-, config
-, ...
-}:
-
 {
-  
+  lib,
+  pkgs,
+  config,
+  ...
+}: {
   # Extra drivers settings
   hardware = {
     enableAllFirmware = true;
@@ -18,4 +16,3 @@
     ];
   };
 }
-

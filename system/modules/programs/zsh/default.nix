@@ -1,11 +1,9 @@
-{ lib
-, config
-, ...
+{
+  lib,
+  config,
+  ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.module.programs.zsh;
 in {
   options = {
@@ -16,4 +14,3 @@ in {
     programs.zsh.enable = true;
   };
 }
-

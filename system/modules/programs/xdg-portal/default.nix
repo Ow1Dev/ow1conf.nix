@@ -1,13 +1,11 @@
-{ pkgs
-, lib
-, config
-, inputs
-, ...
+{
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.module.programs.xdg-portal;
 in {
   options = {
@@ -37,4 +35,3 @@ in {
     };
   };
 }
-

@@ -1,13 +1,11 @@
-{ pkgs
-, lib
-, config
-, username
-, ...
+{
+  pkgs,
+  lib,
+  config,
+  username,
+  ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.module.users;
 in {
   options = {
@@ -43,4 +41,3 @@ in {
     };
   };
 }
-

@@ -1,6 +1,4 @@
-_:
-
-{
+_: {
   networking = {
     networkmanager.wifi.backend = "iwd";
 
@@ -34,13 +32,18 @@ _:
       ];
 
       allowedTCPPortRanges = [
-        { from = 1714; to = 1764; } # KDE Connect
+        {
+          from = 1714;
+          to = 1764;
+        } # KDE Connect
       ];
-      
+
       allowedUDPPortRanges = [
-        { from = 1714; to = 1764; } # KDE Connect
+        {
+          from = 1714;
+          to = 1764;
+        } # KDE Connect
       ];
     };
   };
 }
-

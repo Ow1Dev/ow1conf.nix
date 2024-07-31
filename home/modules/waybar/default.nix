@@ -1,12 +1,10 @@
-{ pkgs
-, config
-, lib
-, ...
+{
+  pkgs,
+  config,
+  lib,
+  ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.module.waybar;
 in {
   options = {
@@ -36,7 +34,7 @@ in {
             "custom/nixlogo"
             "hyprland/workspaces"
           ];
-          modules-center = [ "clock" ];
+          modules-center = ["clock"];
           modules-right = [
             "hyprland/language"
             "tray"
@@ -188,4 +186,3 @@ in {
     };
   };
 }
-

@@ -1,12 +1,11 @@
-{ inputs
-, pkgs
-, lib
-, config
-, ...}:
-
-with lib;
-
-let
+{
+  inputs,
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+with lib; let
   cfg = config.module.services.hyprland;
 in {
   options = {
@@ -20,4 +19,3 @@ in {
     };
   };
 }
-

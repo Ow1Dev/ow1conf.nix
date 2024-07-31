@@ -1,8 +1,4 @@
-{ pkgs
-, ...
-}:
-
-{
+{pkgs, ...}: {
   services.homepage-dashboard = {
     enable = true;
     package = pkgs.homepage-dashboard;
@@ -45,4 +41,3 @@
     lib.mkForce "${configDir}";
   */
 }
-

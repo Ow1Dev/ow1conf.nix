@@ -1,6 +1,4 @@
-_:
-
-{
+_: {
   imports = [
     ./systemPackages
     ./home-manager
@@ -13,4 +11,3 @@ _:
     ./dconf
   ];
 }
-
