@@ -3,8 +3,10 @@
     inputs.stylix.homeManagerModules.stylix
     ../../modules/stylix
 
+    ./ags
     ./neovim
     ./hyprland
+    ./gtk
     ./waybar
     ./rofi
     ./foot
