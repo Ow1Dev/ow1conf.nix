@@ -5,7 +5,7 @@
 }: 
 
 let
-  theme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+  theme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
   wallpaper = ../../assets/grey_gradient.png;
   cursorSize = if hostname == "nbox" then 24 else 14;
 in {

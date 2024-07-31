@@ -86,7 +86,7 @@ in {
           "hyprland/language" = {
             format = "{}";
             format-en = "US";
-            format-ru = "RU";
+            format-dk = "DK";
           };
 
           # Notifications
