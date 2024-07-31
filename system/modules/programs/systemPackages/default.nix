@@ -1,12 +1,10 @@
-{ pkgs
-, lib
-, config
-, ...
+{
+  pkgs,
+  lib,
+  config,
+  ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.module.programs.systemPackages;
 in {
   options = {
@@ -15,9 +13,12 @@ in {
 
   config = mkIf cfg.enable {
     fonts.packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "JetBrainsMono" "UbuntuMono" ]; })
+      (nerdfonts.override {fonts = ["JetBrainsMono" "UbuntuMono"];})
       corefonts
     ];
+
+    # TODO: Move this to somewhere else
+    services.upower.enable = true;
 
     environment.systemPackages = with pkgs; [
       # Utils
@@ -59,4 +60,3 @@ in {
     ];
   };
 }
-
