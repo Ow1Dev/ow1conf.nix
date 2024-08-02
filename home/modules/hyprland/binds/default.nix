@@ -18,6 +18,9 @@ in {
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
       exec-once = [
+        "nm-applet"
+        "waybar"
+        "swaync"
       ];
 
       bind = [

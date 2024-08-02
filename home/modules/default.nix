@@ -10,6 +10,7 @@
     ./waybar
     ./rofi
     ./fuzzel
+    ./swaync
     ./foot
     ./chrome
     ./zsh

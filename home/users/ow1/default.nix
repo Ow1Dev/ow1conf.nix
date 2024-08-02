@@ -21,6 +21,7 @@
     fuzzel.enable = true;
     foot.enable = true;
     chrome.enable = true;
+    swaync.enable = true;
     zoxide.enable = true;
     nix-config = {
       enable = true;
