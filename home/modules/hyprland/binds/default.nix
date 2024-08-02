@@ -9,7 +9,7 @@ with lib; let
 
   audioControl = "${pkgs.pulseaudio}/bin/pactl";
   brightnessControl = "${pkgs.brightnessctl}/bin/brightnessctl";
-  appLauncher = "rofi -show";
+  appLauncher = "fuzzel";
 in {
   options = {
     module.hyprland.binds.enable = mkEnableOption "Enables binds in Hyprland";

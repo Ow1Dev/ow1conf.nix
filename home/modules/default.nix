@@ -9,6 +9,7 @@
     ./gtk
     ./waybar
     ./rofi
+    ./fuzzel
     ./foot
     ./chrome
     ./zsh

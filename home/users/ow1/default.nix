@@ -17,7 +17,8 @@
     waybar.enable = true;
     ags.enable = false;
     gtk.enable = true;
-    rofi.enable = true;
+    rofi.enable = false;
+    fuzzel.enable = true;
     foot.enable = true;
     chrome.enable = true;
     zoxide.enable = true;
