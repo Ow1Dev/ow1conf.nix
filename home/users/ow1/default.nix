@@ -14,8 +14,8 @@
     git.enable = true;
     zsh.enable = true;
     hyprland.enable = true;
-    waybar.enable = false;
-    ags.enable = true;
+    waybar.enable = true;
+    ags.enable = false;
     gtk.enable = true;
     rofi.enable = true;
     foot.enable = true;

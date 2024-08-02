@@ -1,5 +1,4 @@
 {
-  pkgs,
   config,
   lib,
   ...
@@ -19,165 +18,120 @@ in {
 
       settings = [
         {
+          position = "bottom";
           layer = "top";
-          position = "top";
-          exclusive = true;
-          fixed-center = true;
-          gtk-layer-shell = true;
-          spacing = 0;
-          margin-top = 7;
+          height = 5;
+          margin-top = 0;
           margin-bottom = 0;
-          margin-left = 7;
-          margin-right = 7;
-
+          margin-left = 0;
+          margin-right = 0;
           modules-left = [
-            "custom/nixlogo"
+            "custom/launcher"
             "hyprland/workspaces"
           ];
-          modules-center = ["clock"];
+          modules-center = [
+            "clock"
+          ];
           modules-right = [
-            "hyprland/language"
             "tray"
-            "pulseaudio"
             "cpu"
             "memory"
-            "network"
+            "disk"
+            "pulseaudio"
             "battery"
+            "network"
             "custom/notification"
           ];
-
-          # Logo
-          "custom/nixlogo" = {
-            format = " ";
-            tooltip = false;
-            on-click = "rofi -show";
-          };
-
-          # Workspaces
-          "hyprland/workspaces" = {
-            format = "{name}";
-            on-click = "activate";
-            disable-scroll = true;
-            all-outputs = true;
-            show-special = true;
-            persistent-workspaces = {"*" = 6;};
-          };
-
-          # Clock & Calendar
           clock = {
-            format = "{:%a %b %d, %H:%M}";
-            on-click = "${pkgs.eww}/bin/eww update showcalendar=true";
-
-            actions = {
-              on-scroll-down = "shift_down";
-              on-scroll-up = "shift_up";
+            calendar = {
+              format = {today = "<span color='#b4befe'><b><u>{}</u></b></span>";};
             };
+            format = " {:%H:%M}";
+            tooltip = "true";
+            tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+            format-alt = " {:%d/%m}";
           };
-
-          # Tray
+          "hyprland/workspaces" = {
+            all-outputs = true;
+            disable-scroll = true;
+            on-click = "activate";
+            format = "{icon}";
+            format-icons = { default = ""; };
+          };
+          memory = {
+            format = "󰟜 {}%";
+            format-alt = "󰟜 {used} GiB"; # 
+            interval = 2;
+          };
+          cpu = {
+            format = "  {usage}%";
+            format-alt = "  {avg_frequency} GHz";
+            interval = 2;
+          };
+          disk = {
+            # path = "/";
+            format = "󰋊 {percentage_used}%";
+            interval = 60;
+          };
+          network = {
+            format-wifi = "  {signalStrength}%";
+            format-ethernet = "󰀂 ";
+            tooltip-format = "Connected to {essid} {ifname} via {gwaddr}";
+            format-linked = "{ifname} (No IP)";
+            format-disconnected = "󰖪 ";
+          };
           tray = {
-            icon-size = 18;
-            show-passive-items = true;
+            icon-size = 20;
             spacing = 8;
           };
-
-          "hyprland/language" = {
-            format = "{}";
-            format-en = "US";
-            format-dk = "DK";
-          };
-
-          # Notifications
-          "custom/notification" = {
-            exec = "${pkgs.swaynotificationcenter}/bin/swaync-client -swb";
-            return-type = "json";
-            format = "{icon}";
-            on-click = "${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
-            on-click-right = "${pkgs.swaynotificationcenter}/bin/swaync-client -d -sw";
-            escape = true;
-
-            format-icons = {
-              notification = "󰂚";
-              none = "󰂜";
-              dnd-notification = "󰂛";
-              dnd-none = "󰪑";
-              inhibited-notification = "󰂛";
-              inhibited-none = "󰪑";
-              dnd-inhibited-notification = "󰂛";
-              dnd-inhibited-none = "󰪑";
-            };
-          };
-
-          # Pulseaudio
           pulseaudio = {
-            format = "{volume} {icon} / {format_source}";
-            format-source = "󰍬";
-            format-source-muted = "󰍭";
-            format-muted = "󰖁 / {format_source}";
-            format-icons = {default = ["󰕿" "󰖀" "󰕾"];};
-            on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
-            on-click-right = "${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
-            on-scroll-up = "${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +1%";
-            on-scroll-down = "${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -1%";
-            tooltip = false;
+            format = "{icon} {volume}%";
+            format-muted = "  {volume}%";
+            format-icons = {
+              default = [" "];
+            };
+            scroll-step = 5;
+            on-click = "pamixer -t";
           };
-
-          # Battery
           battery = {
-            # format = "{capacity}% {icon} {power} W";
-            # format-charging = "{capacity}%  {power} W";
-            # format-icons = ["" "" "" "" "" "" "" "" "" "" ""];
-            format = "{icon}  {capacity}%";
-            format-charging = "{icon}  {capacity}%";
-            format-icons = ["" "" "" "" ""];
-            format-plugged = " {power} W";
+            format = "{icon} {capacity}%";
+            format-icons = [" " " " " " " " " "];
+            format-charging = " {capacity}%";
+            format-full = " {capacity}%";
+            format-warning = " {capacity}%";
             interval = 5;
-            tooltip-format = "{timeTo}, {capacity}%\n {power} W";
-
             states = {
-              warning = 30;
-              critical = 15;
+              warning = 20;
             };
+            format-time = "{H}h{M}m";
+            tooltip = true;
+            tooltip-format = "{time}";
           };
-
-          # Cpu usage
-          cpu = {
-            interval = 5;
+          "custom/launcher" = {
+            format = "";
+            on-click = "fuzzel";
+            on-click-right = "wallpaper-picker";
+            tooltip = "false";
+          };
+          "custom/notification" = {
             tooltip = false;
-            format = " {usage}%";
-            format-alt = " {load}";
-
-            states = {
-              warning = 70;
-              critical = 90;
+            format = "{icon} ";
+            format-icons = {
+              notification = "<span foreground='red'><sup></sup></span>   ";
+              none = "   ";
+              dnd-notification = "<span foreground='red'><sup></sup></span>   ";
+              dnd-none = "   ";
+              inhibited-notification = "<span foreground='red'><sup></sup></span>   ";
+              inhibited-none = "   ";
+              dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>   ";
+              dnd-inhibited-none = "   ";
             };
-          };
-
-          # Memory usage
-          memory = {
-            interval = 5;
-            format = " {percentage}%";
-            tooltip = " {used:0.1f}G/{total:0.1f}G";
-
-            states = {
-              warning = 70;
-              critical = 90;
-            };
-          };
-
-          # Network
-          network = {
-            # format-wifi = "{bandwidthDownBytes}  {bandwidthUpBytes}";
-            # format-ethernet = "{bandwidthDownBytes}  {bandwidthUpBytes}";
-            format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
-            format-wifi = "{icon}";
-            format-ethernet = "󰈀"; # 󰈁
-            format-disconnected = "⚠";
-            tooltip-format-wifi = "WiFi: {essid} ({signalStrength}%)\n {bandwidthUpBytes}  {bandwidthDownBytes}";
-            tooltip-format-ethernet = "Ethernet: {ifname}\n {bandwidthUpBytes}  {bandwidthDownBytes}";
-            tooltip-format-disconnected = "Disconnected";
-            on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
-            interval = 5;
+            return-type = "json";
+            exec-if = "which swaync-client";
+            exec = "swaync-client -swb";
+            on-click = "swaync-client -t -sw";
+            on-click-right = "swaync-client -d -sw";
+            escape = true;
           };
         }
       ];
