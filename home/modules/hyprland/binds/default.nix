@@ -92,7 +92,7 @@ in {
         # "SUPER, C, exec, ${cliphist}"
 
         # Lock
-        # "SUPER, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
+        "SUPER, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
 
         # Fullscreen
         "SUPER, Z, fullscreen"

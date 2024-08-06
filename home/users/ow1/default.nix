@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
     ../../../modules/nix
     ../../modules
@@ -14,11 +18,14 @@
     git.enable = true;
     zsh.enable = true;
     hyprland.enable = true;
-    waybar.enable = true;
+
+    hyprlock.enable = config.module.hyprland.enable;
+    waybar.enable = config.module.hyprland.enable;
+    fuzzel.enable = config.module.hyprland.enable;
+
     ags.enable = false;
     gtk.enable = true;
     rofi.enable = false;
-    fuzzel.enable = true;
     foot.enable = true;
     chrome.enable = true;
     swaync.enable = true;

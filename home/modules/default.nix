@@ -6,6 +6,7 @@
     ./ags
     ./neovim
     ./hyprland
+    ./hyprlock
     ./gtk
     ./waybar
     ./rofi
