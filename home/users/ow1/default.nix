@@ -41,6 +41,8 @@
     packages = with pkgs; [
       # Utils
       bat
+      jq
+      gh
       nnn
 
       # DevOps Utils
