@@ -1,8 +1,5 @@
 {pkgs, ...}: {
-  # Graphics card settings
-  nixpkgs.overlays = [
-    (import ../../../../../overlays/vaapiIntel)
-  ];
+  services.xserver.videoDrivers = ["nvidia"];
 
   hardware.graphics = {
     enable = true;
@@ -10,10 +7,6 @@
 
     extraPackages = with pkgs; [
       mesa
-      intel-media-driver
-      vaapiIntel
-      vaapiVdpau
-      libvdpau-va-gl
     ];
   };
 }
