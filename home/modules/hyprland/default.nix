@@ -53,6 +53,10 @@ in {
         env = [
           "XDG_CURRENT_DESKTOP,Hyprland"
           "XDG_SESSION_DESKTOP,Hyprland"
+          "IBVA_DRIVER_NAME,nvidia"
+          "DG_SESSION_TYPE,wayland"
+          "BM_BACKEND,nvidia-drm"
+          "_GLX_VENDOR_LIBRARY_NAME,nvidia"
         ];
 
         animations = {
@@ -112,6 +116,10 @@ in {
           touchpad = {
             natural_scroll = true;
           };
+        };
+
+        cursor = {
+            no_hardware_cursors = true;
         };
 
         misc = {
