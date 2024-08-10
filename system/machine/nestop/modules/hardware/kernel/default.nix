@@ -1,9 +1,15 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   # Kernel settings
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_6_9;
 
-    extraModulePackages = [];
+    extraModulePackages = [
+      config.boot.kernelPackages.nvidia_x11_beta
+    ];
 
     kernelModules = [
       "kvm-intel"

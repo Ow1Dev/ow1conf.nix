@@ -2,11 +2,11 @@
   description = "ow1 flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
     # NixOS community
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -21,7 +21,8 @@
 
     # Hyprland ecosystem
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.41.1";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Just for pretty flake.nix
@@ -36,7 +37,7 @@
 
   outputs = {flake-parts, ...} @ inputs: let
     linuxArch = "x86_64-linux";
-    stateVersion = "24.11";
+    stateVersion = "24.05";
     libx = import ./lib {inherit inputs stateVersion;};
 
     hosts = {
