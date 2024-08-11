@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable"; # also see 'unstable-packages' overlay at 'overlays/default.nix"
 
     # NixOS community
     home-manager = {
@@ -35,10 +36,15 @@
     ow1dev-nvim.url = "github:Ow1Dev/ow1dev.nvim";
   };
 
-  outputs = {flake-parts, ...} @ inputs: let
+  outputs = {
+    flake-parts,
+    self,
+    ...
+  } @ inputs: let
     linuxArch = "x86_64-linux";
     stateVersion = "24.05";
     libx = import ./lib {inherit inputs stateVersion;};
+    inherit (self) outputs;
 
     hosts = {
       nestop = {
@@ -61,6 +67,8 @@
         homeConfigurations = {
           "${hosts.nestop.username}@${hosts.nestop.hostname}" = libx.mkHome hosts.nestop;
         };
+
+        overlays = import ./overlays {inherit inputs outputs;};
       };
       perSystem = {pkgs, ...}: let
         inherit (pkgs) alejandra just mkShell;

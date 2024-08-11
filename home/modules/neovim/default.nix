@@ -13,8 +13,8 @@ in {
   };
 
   config = mkIf cfg.enable {
-    programs.neovim = inputs.ow1dev-nvim.lib.mkHomeManager {
-      system = pkgs.system;
-    };
+    home.packages = [
+      inputs.ow1dev-nvim.packages.${pkgs.system}.neovim
+    ];
   };
 }
