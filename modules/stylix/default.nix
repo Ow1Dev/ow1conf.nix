@@ -1,58 +1,65 @@
 {
-  pkgs,
+  lib,
   config,
-  hostname,
+  inputs,
+  pkgs,
   ...
-}: let
+}:
+with lib; let
+  cfg = config.module.stylix;
+
   theme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
   wallpaper = ../../assets/wallpaper.png;
-  cursorSize =
-    if hostname == "nbox"
-    then 24
-    else 14;
+  cursorSize = 14;
 in {
-  stylix = {
-    enable = true;
-    image = wallpaper;
-    autoEnable = true;
-    polarity = "dark";
+  options = {
+    module.stylix.enable = mkEnableOption "Enables stylix";
+  };
 
-    base16Scheme = theme;
+  config = mkIf cfg.enable {
+    stylix = {
+      enable = true;
+      image = wallpaper;
+      autoEnable = true;
+      polarity = "dark";
 
-    opacity = {
-      applications = 1.0;
-      terminal = 1.0;
-      popups = 1.0;
-      desktop = 1.0;
-    };
+      base16Scheme = theme;
 
-    cursor = {
-      name = "Vimix-cursors";
-      package = pkgs.vimix-cursors;
-      size = cursorSize;
-    };
-
-    fonts = {
-      sizes = {
-        applications = 11;
-        terminal = 11;
-        popups = 11;
-        desktop = 11;
+      opacity = {
+        applications = 1.0;
+        terminal = 1.0;
+        popups = 1.0;
+        desktop = 1.0;
       };
 
-      serif = {
-        package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono" "Iosevka"];};
-        name = "Iosevka Nerd Font Mono";
+      cursor = {
+        name = "Vimix-cursors";
+        package = pkgs.vimix-cursors;
+        size = cursorSize;
       };
 
-      sansSerif = config.stylix.fonts.serif;
+      fonts = {
+        sizes = {
+          applications = 11;
+          terminal = 11;
+          popups = 11;
+          desktop = 11;
+        };
 
-      monospace = {
-        package = config.stylix.fonts.serif.package;
-        name = "Iosevka Term";
+        serif = {
+          package = pkgs.nerdfonts.override { fonts = ["JetBrainsMono" "Iosevka"]; };
+          name = "Iosevka Nerd Font Mono";
+        };
+
+        sansSerif = config.stylix.fonts.serif;
+
+        monospace = {
+          package = config.stylix.fonts.serif.package;
+          name = "Iosevka Term";
+        };
+
+        emoji = config.stylix.fonts.serif;
       };
-
-      emoji = config.stylix.fonts.serif;
     };
   };
 }

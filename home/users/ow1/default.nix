@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  isWsl,
   ...
 }: {
   imports = [
@@ -17,18 +18,18 @@
     nvim.enable = true;
     git.enable = true;
     zsh.enable = true;
-    hyprland.enable = true;
+    stylix.enable = !isWsl;
+    hyprland.enable = !isWsl;
 
     hyprlock.enable = config.module.hyprland.enable;
     waybar.enable = config.module.hyprland.enable;
     fuzzel.enable = config.module.hyprland.enable;
 
-    ags.enable = false;
-    gtk.enable = true;
-    rofi.enable = false;
-    foot.enable = true;
-    chrome.enable = true;
-    swaync.enable = true;
+    gtk.enable = !isWsl;
+    rofi.enable = !isWsl;
+    foot.enable = !isWsl;
+    chrome.enable = !isWsl;
+    swaync.enable = !isWsl;
     zoxide.enable = true;
     nix-config = {
       enable = true;
