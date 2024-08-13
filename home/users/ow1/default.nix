@@ -52,6 +52,10 @@
       # Developer tools
       doppler
       httpie
+
+      # Misc
+      spotify
+      discord
     ];
   };
 }
