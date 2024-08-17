@@ -13,6 +13,7 @@
     ./fuzzel
     ./swaync
     ./foot
+    ./kitty
     ./chrome
     ./zsh
     ./git

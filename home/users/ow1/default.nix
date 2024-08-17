@@ -27,7 +27,8 @@
 
     gtk.enable = !isWsl;
     rofi.enable = !isWsl;
-    foot.enable = !isWsl;
+    foot.enable = false;
+    kitty.enable = !isWsl;
     chrome.enable = !isWsl;
     swaync.enable = !isWsl;
     zoxide.enable = true;

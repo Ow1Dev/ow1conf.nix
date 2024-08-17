@@ -83,7 +83,7 @@ in {
 
         # Terminal
         # "SUPER, Return, exec, ${pkgs.alacritty}/bin/alacritty"
-        "SUPER, Return, exec, ${pkgs.foot}/bin/foot"
+        "SUPER, Return, exec, ${pkgs.kitty}/bin/kitty"
 
         # Launchers
         "CTRL, Space, exec, ${appLauncher}"
