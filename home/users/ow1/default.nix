@@ -53,7 +53,7 @@
       # Developer tools
       doppler
       httpie
-
+    ] ++ lib.optionals isWsl [
       # Misc
       spotify
       discord
