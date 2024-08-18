@@ -13,6 +13,7 @@
     security.enable = true;
     users.enable = true;
     programs.systemPackages.enable = true;
+    virtualisation.enable = true;
 
     programs = {
       hm.enable = true;
