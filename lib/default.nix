@@ -8,7 +8,7 @@
     hostname ? "nixos",
     platform ? "x86_64-linux",
   }: let
-    isWsl = hostname == "wsl";
+    isWsl = (hostname == "wsl");
     pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${platform};
   in
     inputs.home-manager.lib.homeManagerConfiguration {
