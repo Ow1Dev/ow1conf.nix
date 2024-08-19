@@ -34,7 +34,10 @@
     };
 
     # My neovim config
-    ow1dev-nvim.url = "github:Ow1Dev/ow1dev.nvim";
+    ow1dev-nvim =  {
+      url = "github:Ow1Dev/ow1dev.nvim";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs = {
