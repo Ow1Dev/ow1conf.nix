@@ -18,6 +18,7 @@
     nvim.enable = true;
     git.enable = true;
     zsh.enable = true;
+    tmux.enable = true;
     stylix.enable = !isWsl;
     hyprland.enable = !isWsl;
 

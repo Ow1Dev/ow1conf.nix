@@ -14,6 +14,7 @@
     ./swaync
     ./foot
     ./kitty
+    ./tmux
     ./chrome
     ./zsh
     ./git

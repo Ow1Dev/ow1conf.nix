@@ -16,6 +16,7 @@
     virtualisation.enable = true;
 
     programs = {
+      dconf.enable = true;
       hm.enable = true;
       zsh.enable = true;
     };
