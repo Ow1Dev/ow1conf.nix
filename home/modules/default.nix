@@ -8,6 +8,7 @@
     ./hyprland
     ./hyprlock
     ./gtk
+    ./direnv
     ./waybar
     ./rofi
     ./fuzzel
