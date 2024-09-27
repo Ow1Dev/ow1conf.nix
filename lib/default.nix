@@ -9,12 +9,11 @@
     platform ? "x86_64-linux",
   }: let
     isWsl = (hostname == "wsl");
-    pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${platform};
   in
     inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = inputs.nixpkgs.legacyPackages.${platform};
       extraSpecialArgs = {
-        inherit inputs pkgs-unstable platform username hostname stateVersion isWsl;
+        inherit inputs platform username hostname stateVersion isWsl;
       };
 
       modules = [

@@ -30,6 +30,7 @@ in {
       gtk3
       dbus
       glib
+      libinput
       xdg-utils
       pavucontrol
       networkmanagerapplet

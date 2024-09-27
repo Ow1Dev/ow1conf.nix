@@ -3,7 +3,6 @@
   config,
   inputs,
   pkgs,
-  pkgs-unstable,
   ...
 }:
 with lib; let
@@ -16,7 +15,7 @@ in {
   config = mkIf cfg.enable {
     programs.neovim = inputs.ow1dev-nvim.lib.mkHomeManager {
       system = pkgs.system;
-      package = pkgs-unstable.neovim-unwrapped;
+      package = pkgs.neovim-unwrapped;
     };
   };
 }

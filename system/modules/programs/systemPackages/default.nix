@@ -33,6 +33,7 @@ in {
       zip
       unzip
       killall
+      libinput
 
       # Hardware utils
       glxinfo

@@ -10,8 +10,8 @@
   ];
 
   nixpkgs.overlays = [
-    (import ../../overlays/rofi-calc.nix)
-    (import ../../overlays/rofi-emoji.nix)
+    # (import ../../overlays/rofi-calc.nix)
+    # (import ../../overlays/rofi-emoji.nix)
   ];
 
   module = {

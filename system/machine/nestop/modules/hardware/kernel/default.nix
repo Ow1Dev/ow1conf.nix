@@ -5,7 +5,7 @@
 }: {
   # Kernel settings
   boot = {
-    kernelPackages = pkgs.linuxPackages_6_9;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     extraModulePackages = [
       config.boot.kernelPackages.nvidia_x11_beta
