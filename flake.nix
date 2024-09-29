@@ -7,7 +7,7 @@
 
     # NixOS community
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -45,7 +45,7 @@
     ...
   } @ inputs: let
     linuxArch = "x86_64-linux";
-    stateVersion = "24.05";
+    stateVersion = "24.11";
     libx = import ./lib {inherit inputs stateVersion;};
 
     hosts = {
